@@ -11,6 +11,7 @@ class Utils
         static void Motd();
         static void Cls();
         static std::string Read();
+        static std::string exec(const char* cmd);
 
     protected:
 
