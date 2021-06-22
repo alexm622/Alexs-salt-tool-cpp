@@ -1,4 +1,6 @@
 # depslib dependency file v1.0
-1624319967 source:/home/alex-linux/git/Alexs-salt-tool-cpp/main.cpp
+1624321955 source:/home/alex-linux/git/Alexs-salt-tool-cpp/main.cpp
 	<iostream>
+	<vector>
+	<unordered_map>
 

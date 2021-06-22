@@ -7,13 +7,12 @@
 
 #include <iostream>
 #include <vector>
+#include <unordered_map>
+#include <string>
 
-struct Option {
-    std::string text;
-    int id;
-};
 
-std::vector<Option> Options;
+
+std::unordered_map<int, std::string> options;
 
 std::string read(){
     std::string s;
@@ -31,18 +30,29 @@ void motd(){
     printf("                                                              \n");
 }
 
-void initOptions(){
-    int i = 0;
+void cls(){
+    printf("\033c");
+}
 
+void initOptions(){
+    options[1] = " accept all awaiting clients";
 }
 
 void printOptions(){
+    int i = 0;
+    for(auto s: options){
+        i++;
+        std::string str = std::to_string(i) + ") " + s.second;
+        printf(str.c_str());
+    }
 }
+
 
 int main()
 {
     motd();
-
+    initOptions();
+    printOptions();
     std::string s = read();
     printf(s.c_str());
 
