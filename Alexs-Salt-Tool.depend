@@ -4,3 +4,21 @@
 	<vector>
 	<unordered_map>
 
+1624378669 source:/home/alex/git/Alexs-salt-tool-cpp/src/Options.cpp
+	"Options.h"
+
+1624380085 /home/alex/git/Alexs-salt-tool-cpp/include/Options.h
+
+1624382131 source:/home/alex/git/Alexs-salt-tool-cpp/src/Utils.cpp
+	"Utils.h"
+	<iostream>
+
+1624382526 /home/alex/git/Alexs-salt-tool-cpp/include/Utils.h
+	<string>
+
+1624382144 source:/home/alex/git/Alexs-salt-tool-cpp/main.cpp
+	<iostream>
+	<string>
+	"Options.h"
+	"Utils.h"
+
