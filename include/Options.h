@@ -1,13 +1,14 @@
 #ifndef OPTIONS_H
 #define OPTIONS_H
 
+#include <cstdint>
 
 class Options
 {
     public:
         Options();
         virtual ~Options();
-        static void acceptAll();
+        static int8_t acceptAll();
         static void acceptAndLoad();
 
 

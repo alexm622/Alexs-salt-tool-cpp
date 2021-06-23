@@ -11,35 +11,26 @@
 #include "Utils.h"
 
 
-std::string options[] = {
-    "accept all awaiting clients",
-    "accept and freshload all waiting clients",
-    "freshload all clients from a list of clients",
-    "execute a command across a list of clients",
-    "execute a script across a group of clients",
-    "use chocolatey to install something across a group of clients",
-    "prepare test environment",
-    "Quit"};
-
-
-
-
-void printOptions(){
-    int i = 0;
-    for(std::string s: options){
-        i++;
-        std::string str = std::to_string(i) + ") " + s + "\n";
-        printf(str.c_str());
-    }
-}
 
 
 int main()
 {
+    Utils::createTemp();
     Utils::Motd();
-    printOptions();
+    Utils::printOptions();
     std::string s = Utils::Read();
-    printf(s.c_str());
-
+    int option = 0;
+    try
+    {
+        int option = std::stoi(s);
+        switch(option){
+            case 1:
+                Options::acceptAll();
+                break;
+        }
+    }catch (const std::invalid_argument& e){
+        printf("invalid input!\n");
+        //this just means that an arg that wasn't an int was entered
+    }
 }
 
