@@ -10,6 +10,7 @@
 #include "Options.h"
 #include "Utils.h"
 #include "Files.h"
+#include "Testing.h"
 
 
 
@@ -21,17 +22,41 @@ int main()
     Utils::printOptions();
     std::string s = Utils::Read();
     int option = 0;
-    try
-    {
-        int option = std::stoi(s);
-        switch(option){
-            case 1:
-                Options::acceptAll();
+    bool quitout = false;
+    while(!quitout){
+        try
+        {
+
+            int option = std::stoi(s);
+            switch(option){
+                case 0:
+                    break;
+                case 1:
+                    Options::acceptAll();
+                    break;
+                case 8:
+                    Testing::isTestMode = true;
+                    break;
+                case 9:
+                    quitout = true;
+                    break;
+                default:
+                    printf("that option does not exist \n");
+
+            }
+            if(quitout){
                 break;
+            }
+            Utils::Motd();
+            Utils::printOptions();
+            s = Utils::Read();
+
+        }catch (const std::invalid_argument& e){
+            printf("invalid input!\n");
+            //this just means that an arg that wasn't an int was entered
+            s="0";
         }
-    }catch (const std::invalid_argument& e){
-        printf("invalid input!\n");
-        //this just means that an arg that wasn't an int was entered
     }
+
 }
 

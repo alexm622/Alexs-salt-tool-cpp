@@ -10,6 +10,8 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
+#include <Testing.h>
+
 
 void Utils::Motd(){
     printf("   _   _           _      __       _ _     _____            _ \n");
@@ -18,6 +20,9 @@ void Utils::Motd(){
     printf("/  _  \\ |  __/>  < \\__ \\ _\\ \\ (_| | | |_   / / | (_) | (_) | |\n");
     printf("\\_/ \\_/_|\\___/_/\\_\\|___/ \\__/\\__,_|_|\\__|  \\/   \\___/ \\___/|_|\n");
     printf("                                                              \n");
+    if(Testing::isTestMode){
+        printf("Testing mode is enabled\n");
+    }
 }
 
 void Utils::Cls(){
@@ -39,6 +44,7 @@ std::string Utils::options[] = {
     "execute a script across a group of clients",
     "use chocolatey to install something across a group of clients",
     "prepare test environment",
+    "enable testing mode",
     "Quit"
 }; //NO WRITING TO THIS
 
@@ -99,12 +105,10 @@ std::string Utils::decToBinary(int n)
     return out;
 }
 
-
-
-
-
-
 std::string Utils::exec(const char* cmd) {
+    if(Testing::isTestMode){
+        return ("Testing mode is enabled. the executed command would be"+ (std::string) cmd);
+    }
     std::array<char, 128> buffer;
     std::string result;
     std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd, "r"), pclose);
@@ -117,6 +121,24 @@ std::string Utils::exec(const char* cmd) {
     return result;
 }
 
+std::string Utils::exec(const char* cmd, bool overrideTesting=false) {
+    if(Testing::isTestMode && !overrideTesting){
+        return ("Testing mode is enabled. the executed command would be" + (std::string) cmd);
+    }else if(Testing::isTestMode){
+        printf("testing mode is on, but this exec is set to override\n");
+        printf(("Testing mode is enabled. the executed command would be" + (std::string) cmd).c_str());
+    }
+    std::array<char, 128> buffer;
+    std::string result;
+    std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd, "r"), pclose);
+    if (!pipe) {
+        throw std::runtime_error("popen() failed!");
+    }
+    while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
+        result += buffer.data();
+    }
+    return result;
+}
 
 
 

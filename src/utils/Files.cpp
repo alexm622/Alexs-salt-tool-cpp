@@ -47,11 +47,11 @@ void Files::createTemp(){
         printf("file does not exist\n");
         uid_t uid = getuid();
         if(uid != 0){
-            Utils::exec(("mkdir " + TEMP_PATH).c_str());
+            Utils::exec(("mkdir " + TEMP_PATH).c_str(), true);
             chmod(TEMP_PATH.c_str(), toChmodValues("777"));
         }else{
-            std::string username = Utils::exec("getent passwd 1000 | cut -d: -f1");
-            Utils::exec(("runuser -u" + username + " -- mkdir " + TEMP_PATH).c_str());
+            std::string username = Utils::exec("getent passwd 1000 | cut -d: -f1", true);
+            Utils::exec(("runuser -u" + username + " -- mkdir " + TEMP_PATH).c_str(), true);
             chmod(TEMP_PATH.c_str(), toChmodValues("777"));
 
         }

@@ -16,6 +16,7 @@ class Utils
         static void Cls();
         static std::string Read();
         static std::string exec(const char* cmd);
+        static std::string exec(const char* cmd, bool overrideTesting);
         static void printOptions();
 
         static int binaryToDecimal(int n);
