@@ -32,7 +32,7 @@ int8_t Options::acceptAll(){
     uid_t uid = getuid();
     printf(("the uid is " + std::to_string(uid) + "\n").c_str());
     printf("before\n");
-    std::string s = Utils::exec("echo -e \"y\\r\" | salt-key -A > /tmp/alexs-scripts/accepted.tmp ");
+    std::string s = Utils::exec("echo -e \"y\\r\" | salt-key -A > /tmp/alexs-salt-tool-cpp/accepted.tmp ");
     printf("after\n");
     printf(("output: " + s).c_str());
 

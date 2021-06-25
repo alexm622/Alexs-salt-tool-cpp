@@ -10,21 +10,6 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-const std::string Utils::TEMP_PATH = "/tmp/alexs-salt-tool-cpp";
-
-Utils::Utils()
-{
-    //ctor
-
-}
-
-Utils::~Utils()
-{
-    //dtor
-}
-
-
-
 
 void Utils::Motd(){
     printf("   _   _           _      __       _ _     _____            _ \n");
@@ -116,17 +101,7 @@ std::string Utils::decToBinary(int n)
 
 
 
-int Utils::toChmodValues(const char* chmod){
-    std::string temp;
 
-    for(int i=0; i<3; i++){
-        temp += decToBinary(chmod[i]);
-        //printf((temp + "\n").c_str());
-    }
-
-    return binaryToDecimal(std::stoi(temp.c_str()));
-
-}
 
 
 std::string Utils::exec(const char* cmd) {
@@ -141,45 +116,10 @@ std::string Utils::exec(const char* cmd) {
     }
     return result;
 }
-struct stat info;
 
-int Utils::checkForFile(std::string TEMP_PATH){
-    if( stat( TEMP_PATH.c_str(), &info ) != 0 ){
-        //printf( "%s does not exist or cannot access\n", TEMP_PATH.c_str() );
-        return -1;
-    }else if( info.st_mode & S_IFDIR ){  // S_ISDIR() doesn't exist on my windows
-        //printf( "%s is a directory\n", TEMP_PATH.c_str() );
-        return 0;
-    }else{
-        //printf( "%s is not a directory\n", TEMP_PATH.c_str() );
-        return 1;
-    }
-}
 
-void Utils::createTemp(){
-    if(checkForFile(TEMP_PATH) != 0){
-        printf("file does not exist\n");
-        uid_t uid = getuid();
-        if(uid != 0){
-            exec(("mkdir " + TEMP_PATH).c_str());
-            chmod(TEMP_PATH.c_str(), toChmodValues("777"));
-        }else{
-            std::string username = exec("getent passwd 1000 | cut -d: -f1");
-            exec(("runuser -u" + username + " -- mkdir " + TEMP_PATH).c_str());
-            chmod(TEMP_PATH.c_str(), toChmodValues("777"));
 
-        }
 
-        if(checkForFile("/tmp/alexs-salt-tool-cpp")!=0){
-            printf("something went wrong\n");
-        }
-    }else{
-        //printf("folder exists\n");
-
-        chmod(TEMP_PATH.c_str(), toChmodValues("777"));
-    }
-
-}
 
 
 

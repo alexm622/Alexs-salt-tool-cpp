@@ -9,13 +9,14 @@
 #include <string>
 #include "Options.h"
 #include "Utils.h"
+#include "Files.h"
 
 
 
 
 int main()
 {
-    Utils::createTemp();
+    Files::createTemp();
     Utils::Motd();
     Utils::printOptions();
     std::string s = Utils::Read();
