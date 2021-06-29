@@ -3,8 +3,9 @@
 #include <cstdint>
 #include <unistd.h>
 #include <iostream>
-#include <Utils.h>
 #include <string>
+
+#include "Execution.h"
 
 //"accept all awaiting clients",
 //"accept and freshload all waiting clients",
@@ -31,7 +32,7 @@ int8_t Options::acceptAll(){
 
     uid_t uid = getuid();
     printf(("the uid is " + std::to_string(uid) + "\n").c_str());
-    std::string s = Utils::exec("echo -e \"y\\r\" | salt-key -A > /tmp/alexs-salt-tool-cpp/accepted.tmp ");
+    std::string s = Execution::exec("echo -e \"y\\r\" | salt-key -A > /tmp/alexs-salt-tool-cpp/accepted.tmp ");
     printf(("output: " + s).c_str());
 
     return 0;

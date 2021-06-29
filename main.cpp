@@ -7,10 +7,12 @@
 
 #include <iostream>
 #include <string>
+
 #include "Options.h"
-#include "Utils.h"
 #include "Files.h"
 #include "Testing.h"
+#include "Out.h"
+#include "Input.h"
 
 
 
@@ -18,9 +20,9 @@
 int main()
 {
     Files::createTemp();
-    Utils::Motd();
-    Utils::printOptions();
-    std::string s = Utils::Read();
+    Out::Motd();
+    Out::printOptions();
+    std::string s = Input::Read();
     int option = 0;
     bool quitout = false;
     while(!quitout){
@@ -47,9 +49,9 @@ int main()
             if(quitout){
                 break;
             }
-            Utils::Motd();
-            Utils::printOptions();
-            s = Utils::Read();
+            Out::Motd();
+            Out::printOptions();
+            s = Input::Read();
 
         }catch (const std::invalid_argument& e){
             printf("invalid input!\n");

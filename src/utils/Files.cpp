@@ -10,7 +10,8 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-#include "Utils.h"
+#include "Math.h"
+#include "Execution.h"
 
 
 const std::string Files::TEMP_PATH = "/tmp/alexs-salt-tool-cpp";
@@ -21,11 +22,11 @@ int Files::toChmodValues(const char* chmod){
     std::string temp;
 
     for(int i=0; i<3; i++){
-        temp += Utils::decToBinary(chmod[i]);
+        temp += Math::decToBinary(chmod[i]);
         //printf((temp + "\n").c_str());
     }
 
-    return Utils::binaryToDecimal(std::stoi(temp.c_str()));
+    return Math::binaryToDecimal(std::stoi(temp.c_str()));
 }
 
 
@@ -47,11 +48,11 @@ void Files::createTemp(){
         printf("file does not exist\n");
         uid_t uid = getuid();
         if(uid != 0){
-            Utils::exec(("mkdir " + TEMP_PATH).c_str(), true);
+            Execution::exec(("mkdir " + TEMP_PATH).c_str(), true);
             chmod(TEMP_PATH.c_str(), toChmodValues("777"));
         }else{
-            std::string username = Utils::exec("getent passwd 1000 | cut -d: -f1", true);
-            Utils::exec(("runuser -u" + username + " -- mkdir " + TEMP_PATH).c_str(), true);
+            std::string username = Execution::exec("getent passwd 1000 | cut -d: -f1", true);
+            Execution::exec(("runuser -u" + username + " -- mkdir " + TEMP_PATH).c_str(), true);
             chmod(TEMP_PATH.c_str(), toChmodValues("777"));
 
         }
