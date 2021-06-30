@@ -2,6 +2,7 @@
 
 #include "Testing.h"
 
+//a list of all the options
 std::string Out::options[] = {
     "accept all awaiting clients",
     "accept and freshload all waiting clients",
@@ -14,6 +15,7 @@ std::string Out::options[] = {
     "Quit"
 }; //NO WRITING TO THIS
 
+//print the motd
 void Out::Motd(){
     printf("   _   _           _      __       _ _     _____            _ \n");
     printf("  /_\\ | | _____  _( )__  / _\\ __ _| | |_  /__   \\___   ___ | |\n");
@@ -21,11 +23,12 @@ void Out::Motd(){
     printf("/  _  \\ |  __/>  < \\__ \\ _\\ \\ (_| | | |_   / / | (_) | (_) | |\n");
     printf("\\_/ \\_/_|\\___/_/\\_\\|___/ \\__/\\__,_|_|\\__|  \\/   \\___/ \\___/|_|\n");
     printf("                                                              \n");
-    if(Testing::isTestMode){
+    if(Testing::isTestMode){ //if testing mode is on we want to print this
         printf("Testing mode is enabled\n");
     }
 }
 
+//print out all of the options
 void Out::printOptions(){
     int i = 0;
     for(std::string s: options){
@@ -35,6 +38,7 @@ void Out::printOptions(){
     }
 }
 
+//clear the screen
 void Out::Cls(){
     printf("\033c");
 }

@@ -10,6 +10,7 @@ class Math
         virtual ~Math();
 
         static int binaryToDecimal(int n);
+        static int binaryToDecimal(std::string n);
         static std::string decToBinary(int n);
 
     protected:

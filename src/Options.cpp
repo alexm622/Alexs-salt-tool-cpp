@@ -16,25 +16,21 @@
 //"prepare test environment",
 //"Quit"
 
-Options::Options()
-{
-    //ctor
-}
-
-Options::~Options()
-{
-    //dtor
-}
-
+//the acceptall function
 int8_t Options::acceptAll(){
 
     printf("Accepting All\n");
 
+    //get the users uid
     uid_t uid = getuid();
+    //print the user's uid
     printf(("the uid is " + std::to_string(uid) + "\n").c_str());
+    //do salt-key -A and append the input into a temp file
     std::string s = Execution::exec("echo -e \"y\\r\" | salt-key -A > /tmp/alexs-salt-tool-cpp/accepted.tmp ");
+    //print the output of the command (there shouldnt be any)
     printf(("output: " + s).c_str());
 
+    //quit successfully
     return 0;
 }
 
