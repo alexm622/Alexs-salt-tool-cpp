@@ -6,6 +6,7 @@
 #include <string>
 
 #include "Execution.h"
+#include "Files.h"
 
 //"accept all awaiting clients",
 //"accept and freshload all waiting clients",
@@ -26,7 +27,7 @@ int8_t Options::acceptAll(){
     //print the user's uid
     printf(("the uid is " + std::to_string(uid) + "\n").c_str());
     //do salt-key -A and append the input into a temp file
-    std::string s = Execution::exec("echo -e \"y\\r\" | salt-key -A > /tmp/alexs-salt-tool-cpp/accepted.tmp ");
+    std::string s = Execution::exec(("echo -e \"y\\r\" | salt-key -A >" + Files::TEMP_PATH + "/accepted.tmp ").c_str());
     //print the output of the command (there shouldnt be any)
     printf(("output: " + s).c_str());
 

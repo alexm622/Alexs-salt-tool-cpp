@@ -5,7 +5,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include "fstream"
+#include <fstream>
 
 #include "Math.h"
 #include "Execution.h"
@@ -88,6 +88,27 @@ bool Files::copyFile(const char *SRC, const char* DEST)
     //if this succeeded return true
     return src && dest;
 }
+
+std::deque <std::string> Files::readFile(std::string file){
+    std::deque<std::string> output;
+
+    std::string line;
+    std::ifstream myfile (file);
+    if (myfile.is_open())
+    {
+    while ( getline (myfile,line) )
+    {
+        output.push_back(line);
+    }
+        myfile.close();
+    }
+
+
+
+    return output;
+}
+
+
 
 
 

@@ -14,7 +14,12 @@
 #include "Out.h"
 #include "Input.h"
 
-
+void printDeque(){
+    std::deque<std::string> testIn = Files::readFile((Testing::TEST_IN_ACCEPT));
+    for(int i = 0; i < testIn.size(); i++){
+        printf((testIn[i]+ "\n").c_str());
+    }
+}
 
 //the main function
 int main()
@@ -41,6 +46,7 @@ int main()
             //interpret the option
             switch(option){
                 case 0: // this is not a valid option
+                    printDeque();
                     break;
                 case 1: //this is accept all
                     Options::acceptAll();
