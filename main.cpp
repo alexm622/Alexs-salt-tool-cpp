@@ -38,6 +38,7 @@ int main()
                     break;
                 case 8:
                     Testing::isTestMode = true;
+                    Testing::Setup();
                     break;
                 case 9:
                     quitout = true;

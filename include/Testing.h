@@ -11,7 +11,9 @@ class Testing
 
         static bool isTestMode;
 
-        const std::string TEST_PATH = "~/git/Alexs-salt-tool-cpp";
+        const static std::string TEST_PATH;
+        const static std::string TEST_IN_ACCEPT;
+        const static std::string TEST_LIST_IN;
 
         static void Setup();
     protected:

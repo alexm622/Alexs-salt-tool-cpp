@@ -34,19 +34,23 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Execution.h" />
 		<Unit filename="include/Files.h" />
+		<Unit filename="include/Input.h" />
+		<Unit filename="include/Math.h" />
 		<Unit filename="include/Options.h" />
 		<Unit filename="include/Out.h" />
 		<Unit filename="include/Salt.h" />
 		<Unit filename="include/Testing.h" />
-		<Unit filename="include/Utils.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Options.cpp" />
-		<Unit filename="src/Out.cpp" />
 		<Unit filename="src/Salt.cpp" />
 		<Unit filename="src/test-env/Testing.cpp" />
+		<Unit filename="src/utils/Execution.cpp" />
 		<Unit filename="src/utils/Files.cpp" />
-		<Unit filename="src/utils/Utils.cpp" />
+		<Unit filename="src/utils/Input.cpp" />
+		<Unit filename="src/utils/Math.cpp" />
+		<Unit filename="src/utils/Out.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

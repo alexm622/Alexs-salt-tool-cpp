@@ -1,14 +1,11 @@
 #include "Files.h"
 
-#include <cstdio>
+
 #include <iostream>
-#include <memory>
-#include <stdexcept>
-#include <string>
-#include <array>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include "fstream"
 
 #include "Math.h"
 #include "Execution.h"
@@ -66,7 +63,13 @@ void Files::createTemp(){
         chmod(TEMP_PATH.c_str(), toChmodValues("777"));
     }
 }
-
+bool Files::copyFile(const char *SRC, const char* DEST)
+{
+    std::ifstream src(SRC, std::ios::binary);
+    std::ofstream dest(DEST, std::ios::binary);
+    dest << src.rdbuf();
+    return src && dest;
+}
 
 
 

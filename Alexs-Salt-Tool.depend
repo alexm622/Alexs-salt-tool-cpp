@@ -4,12 +4,11 @@
 	<vector>
 	<unordered_map>
 
-1625009444 source:/home/alex/git/Alexs-salt-tool-cpp/src/Options.cpp
+1625009618 source:/home/alex/git/Alexs-salt-tool-cpp/src/Options.cpp
 	"Options.h"
 	<cstdint>
 	<unistd.h>
 	<iostream>
-	<Utils.h>
 	<string>
 	"Execution.h"
 
@@ -31,11 +30,10 @@
 1625009143 /home/alex/git/Alexs-salt-tool-cpp/include/Utils.h
 	<string>
 
-1625009005 source:/home/alex/git/Alexs-salt-tool-cpp/main.cpp
+1625009624 source:/home/alex/git/Alexs-salt-tool-cpp/main.cpp
 	<iostream>
 	<string>
 	"Options.h"
-	"Utils.h"
 	"Files.h"
 	"Testing.h"
 	"Out.h"
@@ -47,7 +45,7 @@
 1624449022 /home/alex/git/Alexs-salt-tool-cpp/include/Salt.h
 	<string>
 
-1624646510 /home/alex/git/Alexs-salt-tool-cpp/include/Files.h
+1625011707 /home/alex/git/Alexs-salt-tool-cpp/include/Files.h
 	<string>
 
 1625009384 source:/home/alex/git/Alexs-salt-tool-cpp/src/utils/Utils.cpp
@@ -62,25 +60,21 @@
 	<unistd.h>
 	<Testing.h>
 
-1625009497 source:/home/alex/git/Alexs-salt-tool-cpp/src/utils/Files.cpp
+1625011747 source:/home/alex/git/Alexs-salt-tool-cpp/src/utils/Files.cpp
 	"Files.h"
-	<cstdio>
 	<iostream>
-	<memory>
-	<stdexcept>
-	<string>
-	<array>
 	<sys/types.h>
 	<sys/stat.h>
 	<unistd.h>
-	"Utils.h"
+	"fstream"
 	"Math.h"
 	"Execution.h"
 
-1624647809 source:/home/alex/git/Alexs-salt-tool-cpp/src/test-env/Testing.cpp
+1625011999 source:/home/alex/git/Alexs-salt-tool-cpp/src/test-env/Testing.cpp
 	"Testing.h"
+	"Files.h"
 
-1624647748 /home/alex/git/Alexs-salt-tool-cpp/include/Testing.h
+1625011626 /home/alex/git/Alexs-salt-tool-cpp/include/Testing.h
 	<string>
 
 1625008680 source:/home/alex/git/Alexs-salt-tool-cpp/src/Out.cpp
@@ -107,7 +101,7 @@
 1625008947 /home/alex/git/Alexs-salt-tool-cpp/include/Input.h
 	"string"
 
-1625009382 source:/home/alex/git/Alexs-salt-tool-cpp/src/utils/Execution.cpp
+1625009562 source:/home/alex/git/Alexs-salt-tool-cpp/src/utils/Execution.cpp
 	"Execution.h"
 	"array"
 	<memory>

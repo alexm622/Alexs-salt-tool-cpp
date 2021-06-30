@@ -14,6 +14,7 @@ class Files
 
         static int checkForFile(std::string TEMP_PATH);
         static int toChmodValues(const char* chmod);
+        static bool copyFile(const char *SRC, const char* DEST);
         static void createTemp();
 
     protected:
