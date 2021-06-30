@@ -13,9 +13,6 @@
 //the path of the temp files folder
 const std::string Files::TEMP_PATH = "/tmp/alexs-salt-tool-cpp";
 
-//a struct to make the checkForFile() method to work
-struct stat info;
-
 //convert a string of chmod values i.e. "777" to the proper acceptable input
 int Files::toChmodValues(const char* chmod){
     std::string temp;
@@ -31,6 +28,7 @@ int Files::toChmodValues(const char* chmod){
 
 
 int Files::checkForFile(std::string TEMP_PATH){
+    struct stat info;
     if( stat( TEMP_PATH.c_str(), &info ) != 0 ){
         //printf( "%s does not exist or cannot access\n", TEMP_PATH.c_str() );
         return -1;
@@ -41,6 +39,11 @@ int Files::checkForFile(std::string TEMP_PATH){
         //printf( "%s is not a directory\n", TEMP_PATH.c_str() );
         return 1;
     }
+}
+
+bool Files::file_exists(std::string name) {
+  struct stat buffer;
+  return (stat (name.c_str(), &buffer) == 0);
 }
 
 void Files::createTemp(){
@@ -79,6 +82,20 @@ void Files::createTemp(){
 //copy a file
 bool Files::copyFile(const char *SRC, const char* DEST)
 {
+    //get input file stream of source file
+    std::ifstream src(SRC, std::ios::binary);
+    //get output file stream of destination file
+    std::ofstream dest(DEST, std::ios::binary);
+    //this is pretty straightforward, read the file into the new one
+    dest << src.rdbuf();
+    //if this succeeded return true
+    return src && dest;
+}
+bool Files::copyFile(const char *SRC, const char* DEST, bool overwrite)
+{
+    if(overwrite && file_exists((std::string)DEST)){
+        unlink(DEST);
+    }
     //get input file stream of source file
     std::ifstream src(SRC, std::ios::binary);
     //get output file stream of destination file

@@ -16,6 +16,8 @@ class Files
         static int checkForFile(std::string TEMP_PATH);
         static int toChmodValues(const char* chmod);
         static bool copyFile(const char *SRC, const char* DEST);
+        static bool copyFile(const char *SRC, const char* DEST, bool overwrite);
+        static bool file_exists(std::string name);
         static void createTemp();
         static std::deque<std::string> readFile(std::string file);
 

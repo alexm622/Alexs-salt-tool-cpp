@@ -15,7 +15,7 @@
 #include "Input.h"
 
 void printDeque(){
-    std::deque<std::string> testIn = Files::readFile((Testing::TEST_IN_ACCEPT));
+    std::deque<std::string> testIn = Files::readFile((Testing::TEST_IN_ACCEPT_DEST));
     for(int i = 0; i < testIn.size(); i++){
         printf((testIn[i]+ "\n").c_str());
     }
