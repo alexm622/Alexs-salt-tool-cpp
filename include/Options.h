@@ -9,7 +9,7 @@ class Options
         Options();
         virtual ~Options();
         static int8_t acceptAll();
-        static void acceptAndLoad();
+        static int8_t acceptAndLoad();
 
 
     protected:

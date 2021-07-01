@@ -7,6 +7,8 @@
 #include <unistd.h>
 #include <fstream>
 
+
+
 #include "Math.h"
 #include "Execution.h"
 
@@ -119,8 +121,6 @@ std::deque <std::string> Files::readFile(std::string file){
     }
         myfile.close();
     }
-
-
 
     return output;
 }

@@ -9,7 +9,7 @@
 std::string Execution::exec(const char* cmd) {
     //if testing mode is on then we will print the command instead
     if(Testing::isTestMode){
-        printf(("Testing mode is enabled. the executed command would be" + (std::string) cmd + "/n").c_str());
+        printf(("Testing mode is enabled. the executed command would be" + (std::string) cmd + "\n").c_str());
         return ("Testing mode is enabled. the executed command would be: "+ (std::string) cmd);
     }
     std::array<char, 128> buffer;
@@ -31,7 +31,7 @@ std::string Execution::exec(const char* cmd) {
 //use this carefully
 std::string Execution::exec(const char* cmd, bool overrideTesting=false) {
     if(Testing::isTestMode && !overrideTesting){
-        printf(("Testing mode is enabled. the executed command would be" + (std::string) cmd + "/n").c_str());
+        printf(("Testing mode is enabled. the executed command would be" + (std::string) cmd + "\n").c_str());
         return ("Testing mode is enabled. the executed command would be" + (std::string) cmd);
     }else if(Testing::isTestMode){ //testing mode
         printf("testing mode is on, but this exec is set to override\n");

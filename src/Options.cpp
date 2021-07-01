@@ -4,9 +4,12 @@
 #include <unistd.h>
 #include <iostream>
 #include <string>
+#include <unistd.h>
 
 #include "Execution.h"
 #include "Files.h"
+#include "StringTools.h"
+#include "Testing.h"
 
 //"accept all awaiting clients",
 //"accept and freshload all waiting clients",
@@ -33,6 +36,18 @@ int8_t Options::acceptAll(){
 
     //quit successfully
     return 0;
+}
+
+int8_t Options::acceptAndLoad(){
+    std::deque<std::string> clients = StringTools::getAcceptable(StringTools::clean_input(Files::readFile(Testing::TEST_LIST_IN_DEST)));
+    for(int i = 0; i < clients.size(); i++){
+        if(i%5==0 && i!=0){
+            printf("sleeping for 600 seconds \n");
+            sleep(600);
+        }
+        Execution::exec(("salt " + clients[i] + " state.apply scripts.freshload -t600&").c_str());
+    }
+
 }
 
 

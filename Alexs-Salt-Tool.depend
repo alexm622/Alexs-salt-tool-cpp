@@ -4,16 +4,19 @@
 	<vector>
 	<unordered_map>
 
-1625073272 source:/home/alex/git/Alexs-salt-tool-cpp/src/Options.cpp
+1625176423 source:/home/alex/git/Alexs-salt-tool-cpp/src/Options.cpp
 	"Options.h"
 	<cstdint>
 	<unistd.h>
 	<iostream>
 	<string>
+	<unistd.h>
 	"Execution.h"
 	"Files.h"
+	"StringTools.h"
+	"Testing.h"
 
-1624459411 /home/alex/git/Alexs-salt-tool-cpp/include/Options.h
+1625176312 /home/alex/git/Alexs-salt-tool-cpp/include/Options.h
 	<cstdint>
 
 1624478155 source:/home/alex/git/Alexs-salt-tool-cpp/src/Utils.cpp
@@ -31,7 +34,7 @@
 1625009143 /home/alex/git/Alexs-salt-tool-cpp/include/Utils.h
 	<string>
 
-1625076306 source:/home/alex/git/Alexs-salt-tool-cpp/main.cpp
+1625176004 source:/home/alex/git/Alexs-salt-tool-cpp/main.cpp
 	<iostream>
 	<string>
 	"Options.h"
@@ -39,6 +42,7 @@
 	"Testing.h"
 	"Out.h"
 	"Input.h"
+	"StringTools.h"
 
 1625071185 source:/home/alex/git/Alexs-salt-tool-cpp/src/Salt.cpp
 	"Salt.h"
@@ -62,7 +66,7 @@
 	<unistd.h>
 	<Testing.h>
 
-1625079238 source:/home/alex/git/Alexs-salt-tool-cpp/src/utils/Files.cpp
+1625173430 source:/home/alex/git/Alexs-salt-tool-cpp/src/utils/Files.cpp
 	"Files.h"
 	<iostream>
 	<sys/types.h>
@@ -103,7 +107,7 @@
 1625008947 /home/alex/git/Alexs-salt-tool-cpp/include/Input.h
 	"string"
 
-1625071751 source:/home/alex/git/Alexs-salt-tool-cpp/src/utils/Execution.cpp
+1625176495 source:/home/alex/git/Alexs-salt-tool-cpp/src/utils/Execution.cpp
 	"Execution.h"
 	"array"
 	<memory>
@@ -111,4 +115,11 @@
 
 1625009314 /home/alex/git/Alexs-salt-tool-cpp/include/Execution.h
 	"string"
+
+1625175839 source:/home/alex/git/Alexs-salt-tool-cpp/src/utils/StringTools.cpp
+	"StringTools.h"
+
+1625175648 /home/alex/git/Alexs-salt-tool-cpp/include/StringTools.h
+	<deque>
+	<string>
 
