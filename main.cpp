@@ -15,12 +15,6 @@
 #include "Input.h"
 #include "StringTools.h"
 
-void printDeque(std::deque<std::string> testIn){
-    for(int i = 0; i < testIn.size(); i++){
-        printf((testIn[i]+ "\n").c_str());
-    }
-}
-
 //the main function
 int main()
 {
