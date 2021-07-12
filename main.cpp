@@ -45,7 +45,10 @@ int main()
                     Options::acceptAll();
                     break;
                 case 2:
-                    Options::acceptAndLoad();\
+                    Options::acceptAndLoad();
+                    break;
+                case 3:
+                    Options::FreshloadFile();
                     break;
                 case 8: //enable test mode
                     Testing::isTestMode = true;

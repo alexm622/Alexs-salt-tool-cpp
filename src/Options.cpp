@@ -10,6 +10,7 @@
 #include "Files.h"
 #include "StringTools.h"
 #include "Testing.h"
+#include "Input.h"
 
 //"accept all awaiting clients",
 //"accept and freshload all waiting clients",
@@ -47,6 +48,21 @@ int8_t Options::acceptAndLoad(){
         }
         Execution::exec(("salt " + clients[i] + " state.apply scripts.freshload -t600&").c_str());
     }
+
+}
+
+int8_t Options::FreshloadFile(){
+    printf("Executing freshload from a list of clients\n");
+    printf(("Enter file with list of clients: [" + Files::TEMP_PATH + "/accepted.tmp]:").c_str());
+    std::string input = "";
+    std::string input += Input::Read();
+    printf("read success\n");
+    printf("string length %d", input.length());
+    printf("the value of input is %s", input.c_str());
+    if(input.empty()){
+        printf("pick default");
+    }
+    printf("done");
 
 }
 
