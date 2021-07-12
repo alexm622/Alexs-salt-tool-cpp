@@ -54,8 +54,7 @@ int8_t Options::acceptAndLoad(){
 int8_t Options::FreshloadFile(){
     printf("Executing freshload from a list of clients\n");
     printf(("Enter file with list of clients: [" + Files::TEMP_PATH + "/accepted.tmp]:").c_str());
-    std::string input = "";
-    std::string input += Input::Read();
+    std::string input = Input::Read();
     printf("read success\n");
     printf("string length %d", input.length());
     printf("the value of input is %s", input.c_str());
