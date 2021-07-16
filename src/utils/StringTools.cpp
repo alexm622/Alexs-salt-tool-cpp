@@ -17,3 +17,4 @@ std::deque<std::string> StringTools::getAcceptable(std::deque<std::string> input
     return output;
 
 }
+

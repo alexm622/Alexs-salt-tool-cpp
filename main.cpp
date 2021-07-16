@@ -26,7 +26,7 @@ int main()
     Out::printOptions();
 
     //read the users first option
-    std::string s = Input::Read();
+    std::string s (Input::Read());
     int option = 0;
 
     //loop until quit of ctrl^c

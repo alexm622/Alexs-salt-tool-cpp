@@ -6,6 +6,10 @@
 std::string Input::Read(){
     std::string s;
     std::getline(std::cin, s);
-
-    return s;
+    if(s.length()==0){
+        printf("returning none\n");
+        return "(none)";
+    }else{
+        return s;
+    }
 }
