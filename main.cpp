@@ -12,6 +12,7 @@
 //"execute a script across a group of clients",
 //"use chocolatey to install something across a group of clients",
 //reinstall chocolatey across a group of clients,
+//single client options
 //"prepare test environment",
 //"Quit"
 
@@ -72,11 +73,16 @@ int main()
                 case 7:
                     Options::ChocolateyReinstall();
                     break;
-                case 8: //enable test mode
-                    Testing::isTestMode = true;
-                    Testing::Setup();
+                case 8;
+                    printf("this option does not exist yet/n");
                     break;
-                case 9: //quit from the loop
+                case 9:
+                    Testing::Setup(); //setup test env
+                    break;
+                case 10: //enable test mode
+                    Testing::isTestMode = true;
+                    break;
+                case 11: //quit from the loop
                     quitout = true;
                     break;
                 default: //the default statement

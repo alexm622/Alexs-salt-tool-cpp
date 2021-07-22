@@ -10,6 +10,8 @@ std::string Out::options[] = {
     "execute a command across a list of clients",
     "execute a script across a group of clients",
     "use chocolatey to install something across a group of clients",
+    "reinstall chocolatey across a group of clients",
+    "single client options",
     "prepare test environment",
     "enable testing mode",
     "Quit"

@@ -15,10 +15,11 @@
 //"accept all awaiting clients",
 //"accept and freshload all waiting clients",
 //"freshload all clients from a list of clients",
-//"execute a command across a list of clients",
+//"execute a salt command across a list of clients",
 //"execute a script across a group of clients",
 //"use chocolatey to install something across a group of clients",
 //reinstall chocolatey across a group of clients,
+//single client options
 //"prepare test environment",
 //"Quit"
 
@@ -58,7 +59,7 @@ int8_t Options::FreshloadFile(){
     printf("Executing freshload from a list of clients\n");
     printf(("Enter file with list of clients: [" + Files::TEMP_PATH + "/accepted.tmp]:").c_str());
     std::string input (Input::Read());
-    
+
     if(input.compare("(none)")==0){
         printf("picking default\n");
         input = Files::TEMP_PATH + "/accepted.tmp";
@@ -68,7 +69,7 @@ int8_t Options::FreshloadFile(){
         printf("file not found\n");
         return -1;
     }
-    
+
 
     std::deque<std::string> clients = StringTools::clean_input(Files::readFile(input));
     for(int i = 0; i < clients.size(); i++){
@@ -78,7 +79,7 @@ int8_t Options::FreshloadFile(){
         }
         Execution::exec(("salt " + clients[i] + " state.apply scripts.freshload -t600&").c_str());
     }
-    
+
     printf("done\n");
     return 1;
 }
@@ -89,7 +90,7 @@ int8_t Options::executeCommand(){
     std::string input (Input::Read());
     printf("Enter command to execute: ");
     std::string command (Input::Read());
-    
+
     if(input.compare("(none)")==0){
         printf("picking default\n");
         input = Files::TEMP_PATH + "/accepted.tmp";
@@ -120,7 +121,7 @@ int8_t Options::executeScript(){
     std::string input (Input::Read());
     printf("Enter script to execute: ");
     std::string script (Input::Read());
-    
+
     if(input.compare("(none)")==0){
         printf("picking default\n");
         input = Files::TEMP_PATH + "/accepted.tmp";
@@ -150,7 +151,7 @@ int8_t Options::ChocolateyInstall(){
     std::string input (Input::Read());
     printf("Enter package to install: ");
     std::string package (Input::Read());
-    
+
     if(input.compare("(none)")==0){
         printf("picking default\n");
         input = Files::TEMP_PATH + "/accepted.tmp";
