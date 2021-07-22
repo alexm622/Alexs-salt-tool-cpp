@@ -11,6 +11,10 @@ class Options
         static int8_t acceptAll();
         static int8_t acceptAndLoad();
         static int8_t FreshloadFile();
+        static int8_t executeCommand();
+        static int8_t executeScript();
+        static int8_t ChocolateyInstall();
+        static int8_t ChocolateyReinstall();
 
 
     protected:

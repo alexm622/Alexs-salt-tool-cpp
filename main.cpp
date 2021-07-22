@@ -4,6 +4,16 @@
 // /  _  \ |  __/>  < \__ \ _\ \ (_| | | |_   / / | (_) | (_) | |
 // \_/ \_/_|\___/_/\_\|___/ \__/\__,_|_|\__|  \/   \___/ \___/|_|
 
+//a list of options
+//"accept all awaiting clients",
+//"accept and freshload all waiting clients",
+//"freshload all clients from a list of clients",
+//"execute a command across a list of clients",
+//"execute a script across a group of clients",
+//"use chocolatey to install something across a group of clients",
+//reinstall chocolatey across a group of clients,
+//"prepare test environment",
+//"Quit"
 
 #include <iostream>
 #include <string>
@@ -49,6 +59,18 @@ int main()
                     break;
                 case 3:
                     Options::FreshloadFile();
+                    break;
+                case 4:
+                    Options::executeCommand();
+                    break;
+                case 5:
+                    Options::executeScript();
+                    break;
+                case 6:
+                    Options::ChocolateyInstall();
+                    break;
+                case 7:
+                    Options::ChocolateyReinstall();
                     break;
                 case 8: //enable test mode
                     Testing::isTestMode = true;
