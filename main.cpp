@@ -73,7 +73,7 @@ int main()
                 case 7:
                     Options::ChocolateyReinstall();
                     break;
-                case 8;
+                case 8:
                     printf("this option does not exist yet/n");
                     break;
                 case 9:
